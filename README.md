@@ -210,6 +210,24 @@ export const environment = {
 
 # Deploying an Angular Project to Amazon S3
 
+## Detailed Documentation
+
+### Project Overview
+- **Description:** [PRODUCT-CRUD]  
+- **Technologies Used:** Angular, TypeScript, AWS S3  
+
+### File Structure
+- `src/app/service/product.service.ts` - Service for product-related operations.
+- `src/environments/environment.ts` - Development environment configuration.
+- `src/environments/environment.prod.ts` - Production environment configuration.
+- `angular.json` - Angular project configuration file.
+
+### Environment Configuration
+- **Development/local:** Uses `http://localhost:2002` as the API base URL.
+- **Production:** Uses `https://9tlib4ddd6.execute-api.ap-south-1.amazonaws.com/DEV` as the API base URL.
+
+
+
 ## 1. Build the Angular Project
 To create a production-ready build of your Angular project, run the following command:
 ```sh
@@ -260,45 +278,6 @@ Once deployment is complete, you can access your application at:
 ```
 http://yeshwanth-product-fe.s3-website.ap-south-1.amazonaws.com/products
 ```
-
----
-
-## Detailed Documentation
-
-### Project Overview
-- **Description:** [PRODUCT-CRUD]  
-- **Technologies Used:** Angular, TypeScript, AWS S3  
-
-### File Structure
-- `src/app/service/product.service.ts` - Service for product-related operations.
-- `src/environments/environment.ts` - Development environment configuration.
-- `src/environments/environment.prod.ts` - Production environment configuration.
-- `angular.json` - Angular project configuration file.
-
-### Environment Configuration
-- **Development/local:** Uses `http://localhost:2002` as the API base URL.
-- **Production:** Uses `https://9tlib4ddd6.execute-api.ap-south-1.amazonaws.com/DEV` as the API base URL.
-
-### Deployment Steps
-1. **Build the Project:**
-   ```sh
-   ng build --prod
-   ```
-2. **Create and Configure S3 Bucket:**
-   - Create a new S3 bucket.
-   - Set the bucket to be publicly accessible.
-   - Add a bucket policy for public read access.
-     
-3. **Upload Files to S3:**
-   ```sh
-   aws s3 sync dist/your-project-name s3://your-bucket-name
-   ```
-4. **Enable Static Website Hosting:**
-   - Set the index document to `index.html`.
-   - Set the error document to `index.html`.
-
-### Accessing the Application
-- **URL:** http://yeshwanth-product-fe.s3-website.ap-south-1.amazonaws.com   
 
 
 
